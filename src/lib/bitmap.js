@@ -2,7 +2,7 @@
 'use strict';
 
 const fs = require('fs');
-const bitmapBuffer = fs.readFileSync(`${__dirname}/assets/lib/bitmap.bmp`);
+const bitmapBuffer = fs.readFile(`${__dirname}./assets/bitmap.bmp`);
 
 const bmp = {};
 
@@ -14,7 +14,7 @@ bmp.width = bitmapBuffer.readInt32LE(100); //width offset
 bmp.numColors = bitmapBuffer.readInt32LE(256); //number of colors
 
 
-console.log('my current bitmapBuffer file:', bmp);
+console.log('my current bitmap buffer file:', bmp);
 
 let COLOR_TABLE_SIZE = bmp.numColors * 4;
 bmp.colorTable = buffer.slice(COLOR_TABLE_OFFSET, COLOR_TABLE_SIZE)

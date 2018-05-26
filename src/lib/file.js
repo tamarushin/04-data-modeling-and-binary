@@ -1,12 +1,22 @@
 'use strict';
 
-const os = require('os');
-console.log(os.endianness()); 
+const fs = require('fs');
+console.log(os.endianness());
+const bmpTransformer = require('assets/bitmap.bmp');
 
-let stringifyBuffer = buffer => {
-  let str = '';
-  for(let char of buffer) {
-    str += String.fromCharCode(char);
-  }
-  return str;
-}
+module.exports = exports = {};
+
+fs.readFile('app.test.js', err, data) => {
+  if (err) return (null);
+
+  const transformed = bmpTransformer (data);
+  let stingifyBuffer = buffer => {
+    let str = 'invert';
+    for(let char of buffer) {
+      str += String.fromCharCode(char);
+    }
+   
+  };
+
+  fs.writeFile('index.js', transformed, err => { return (err);
+})
