@@ -9,7 +9,25 @@ Write the mutated buffer to the output file path
 */
 
 
-let bpmList = require('./src/app.js');
+//const bpmList = require('.../src/app');
+const fileHandler = require('../src/lib/file.js');
 
+describe('Testing file.js', () => {
 
+    it('should correctly read the file', (done) => {
+        fileHandler.readFile(`${__dirname}/../assets/bitmap.bmp`, (error, data) => {
+            expect(error).toBe(null);
+            done();
+        })    
+    
+    });
+    it('should throw an error for wrong filename', (done) => {
+        fileHandler.readFile(`${__dirname}/../assets/rockstar.bmp`, (error, data) => {
+            expect(error).not.toBe(null);
+            done();
+        })
+    })
+    
 
+    
+})

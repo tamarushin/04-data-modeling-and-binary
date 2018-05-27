@@ -9,16 +9,18 @@ The CLI should log a success message on completion
 -Read it, transform it, save it methods
 */
 'use strict';
-
-const fileUtils = require('./src/lib/file.js');
-const bitMapParser = require('./src/lib/bitmap.js');
-const transformFiles = require('./src/lib/transform.js');
+/*
+const fileUtils = require('./src/lib/file');
+const bitMapParser = require('./src/lib/bitmap');
+const transformFiles = require('./src/lib/transform');
 
 const transformations = ['invert', 'randomize', 'add water mark', 'darken or lighten'];
 
 const cliArgs = process.argv;
+*/
 
 
+console.log(process.argv);
 
 
 
