@@ -9,8 +9,10 @@ The CLI should log a success message on completion
 -Read it, transform it, save it methods
 */
 'use strict';
-/*
+
 const fileUtils = require('./src/lib/file');
+
+/*
 const bitMapParser = require('./src/lib/bitmap');
 const transformFiles = require('./src/lib/transform');
 
@@ -20,7 +22,11 @@ const cliArgs = process.argv;
 */
 
 
-console.log(process.argv);
+const inFile = process.argv[2];
+const outFile = process.argv[3];
+const changing = process.argv[4];
+
+fileUtils.readFile()
 
 
 

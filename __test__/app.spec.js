@@ -1,5 +1,4 @@
 'use strict';
-
 /*
 Gather user input (infile, outfile, and transform)
 Read the input bitmap file using the fs module
@@ -11,11 +10,12 @@ Write the mutated buffer to the output file path
 
 //const bpmList = require('.../src/app');
 const fileHandler = require('../src/lib/file.js');
+const bitMap = require('../src/lib/bitmap.js');
 
 describe('Testing file.js', () => {
 
-    it('should correctly read the file', (done) => {
-        fileHandler.readFile(`${__dirname}/../assets/bitmap.bmp`, (error, data) => {
+    it('should correctly read the file.js', (done) => {
+        fileHandler.readFile(`${__dirname}/../src/lib/file.js`, (error, data) => {
             expect(error).toBe(null);
             done();
         })    
@@ -25,9 +25,18 @@ describe('Testing file.js', () => {
         fileHandler.readFile(`${__dirname}/../assets/rockstar.bmp`, (error, data) => {
             expect(error).not.toBe(null);
             done();
-        })
-    })
+        });
     
 
+    });
+})
+
+describe('Testing bitmap.js module', () => {
+    it('should grab the bitmap picture', () => {
+        fileHandler.readFile(`${__dirname}/../assets/bitmap.bpm`, () => {
+            expect(error).toBe(null);
+        })
+
+    })
     
 })
