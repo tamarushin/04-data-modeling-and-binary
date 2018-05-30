@@ -19,7 +19,7 @@ const writeFile = (fileName, newBuffer, cb) => {
         return cb(null, data);
     });
 };
-
+//another way to export files. 
 module.exports = {
     readFile,
     writeFile
