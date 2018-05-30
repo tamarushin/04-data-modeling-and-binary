@@ -14,12 +14,11 @@ const readFile = (path, callback) => {
 };
 
 const writeFile = (fileName, newBuffer, cb) => {
-    fs.writeFile(FileName, newBuffer, (err, data) => {
+    fs.writeFile(fileName, newBuffer, (err, data) => {
         if(err) return cb(err);
         return cb(null, data);
     });
 };
-//another way to export files. 
 module.exports = {
     readFile,
     writeFile
