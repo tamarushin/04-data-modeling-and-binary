@@ -1,22 +1,26 @@
 
 'use strict';
 
-const fs = require('fs');
-const bitmapBuffer = fs.readFile(`${__dirname}./assets/bitmap.bmp`);
+class ParsedBitmap{
+    constructor(buffer){
+        this.buffer = Buffer.from(buffer);
+        this.type = buffer.toString('utf8', 0, 2);
+        this.fileSize = buffer.readInt32LE(2);
+        this.width = buffer.readInt32LE(18);
+        this.height = buffer.readInt32LE(22);
+        this.bytesPerPixel = buffer.readInt32LE(28);
+        this.numColors = buffer.readInt32LE(46);
+        this.colorTable = buffer.slice(54, this.numColors * 4);
+    }
+    getBuffer(){
+        return this.buffer;
+    }
+    scaleUp(width, height){
+        this.buffer.writeInt32LE(width, 18);
+        this.buffer.writeInt32LE(height, 22);
+    }
+    makeBlack(){
+    }
+}
 
-const bmp = {};
-
-bmp.type = bitmapBuffer.toString('utf-8', 0, 2);
-bmp.fileSize = bitmapBuffer.readInt32LE(2); //file size
-bmp.bytesPerPixel = bitmapBuffer.readInt16LE(8); //bytes per pixel offset
-bmp.height = bitmapBuffer.readInt32LE(100); //height offset
-bmp.width = bitmapBuffer.readInt32LE(100); //width offset
-bmp.numColors = bitmapBuffer.readInt32LE(256); //number of colors
-
-
-console.log('my current bitmap buffer file:', bmp);
-
-let COLOR_TABLE_SIZE = bmp.numColors * 4;
-bmp.colorTable = buffer.slice(COLOR_TABLE_OFFSET, COLOR_TABLE_SIZE)
-
-console.log(bmp);
+module.exports = ParsedBitmap;

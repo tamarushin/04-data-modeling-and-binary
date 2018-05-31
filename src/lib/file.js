@@ -1,22 +1,25 @@
 'use strict';
 
+//Read file and write file method that reads file 
+
 const fs = require('fs');
-console.log(os.endianness());
-const bmpTransformer = require('assets/bitmap.bmp');
 
-module.exports = exports = {};
 
-fs.readFile('app.test.js', err, data) => {
-  if (err) return (null);
+const readFile = (path, callback) => {
+  fs.readFile(path, (err, data) => {
+    if (err) return callback(err);
+    return callback(null, data);
 
-  const transformed = bmpTransformer (data);
-  let stingifyBuffer = buffer => {
-    let str = 'invert';
-    for(let char of buffer) {
-      str += String.fromCharCode(char);
-    }
-   
-  };
+  });
+};
 
-  fs.writeFile('index.js', transformed, err => { return (err);
-})
+const writeFile = (fileName, newBuffer, cb) => {
+  fs.writeFile(fileName, newBuffer, (err, data) => {
+    if (err) return cb(err);
+    return cb(null, data);
+  });
+};
+module.exports = {
+  readFile,
+  writeFile
+};
