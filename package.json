@@ -4,7 +4,8 @@
   "description": "![CF](https://camo.githubusercontent.com/70edab54bba80edb7493cad3135e9606781cbb6b/687474703a2f2f692e696d6775722e636f6d2f377635415363382e706e67) Lab 04: Bitmap Transformer ===",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --coverage"
+    "test": "jest --verbose --coverage",
+    "lint": "eslint **/.js"
   },
   "repository": {
     "type": "git",
@@ -19,11 +20,9 @@
   "dependencies": {
     "jest": "^23.0.0",
     "lint": "^1.1.2",
-    "start": "^5.1.0",
-    "test": "eslint **/.js"
+    "start": "^5.1.0"
   },
   "quokka": {
     "babel": true
   }
-
 }
